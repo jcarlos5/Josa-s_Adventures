@@ -50,7 +50,9 @@ public class PlayerController : MonoBehaviour
         else if(obj.gameObject.tag ==  "Apple")
         {
             apples++;
+            UpdateApples();
         }
+        Destroy(obj.gameObject);
     }
 
     private void UpdatePieces()
