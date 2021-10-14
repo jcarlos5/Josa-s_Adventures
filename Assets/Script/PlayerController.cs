@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         if (obj.gameObject.tag ==  "KeyPiece")
         {
             numPieces++;
+            Destroy(obj.gameObject);
             UpdatePieces();
         }
         else if(obj.gameObject.tag ==  "FirstAidKit")
@@ -64,22 +65,23 @@ public class PlayerController : MonoBehaviour
             {
                 health = 100;
             }
+            Destroy(obj.gameObject);
         }
         else if(obj.gameObject.tag ==  "ImmortalityPocion")
         {
             isImmortal = true;
+            Destroy(obj.gameObject);
         }
         else if(obj.gameObject.tag ==  "Apple")
         {
             apples++;
+            Destroy(obj.gameObject);
             UpdateApples();
         }
-        Destroy(obj.gameObject);
 
-        if(Input.GetKeyDown( KeyCode.E) && (obj.gameObject.tag ==  "Enemy"))
+        if(Input.GetMouseButtonDown(0) && (obj.gameObject.tag ==  "Enemy"))
         {
             obj.GetComponent<EnemyBehavior>().TakeDamage(10);
-            
         }
     }
 
