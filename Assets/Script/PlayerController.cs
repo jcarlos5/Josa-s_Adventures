@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -13,11 +14,13 @@ public class PlayerController : MonoBehaviour
     public Text txtPieces, txtBonus, txtApples;
     public int targetPieces = 4;
     public float bonusTime = 30f;
+    private Vector3 portalPosition;
 
     private void Start()
     {
         UpdatePieces();
         UpdateApples();
+        portalPosition = GameObject.FindWithTag("Portal").transform.position;
     }
 
     private void Update()
@@ -28,6 +31,18 @@ public class PlayerController : MonoBehaviour
             if (bonusTime <= 0){
                 isImmortal = false;
                 txtBonus.text = "";
+            }
+        }
+        if(Input.GetKeyDown( KeyCode.E ) && (transform.position.x < portalPosition[0] + 3 && transform.position.x > portalPosition[0] - 3) && (transform.position.z < portalPosition[2] + 3 && transform.position.z > portalPosition[2] - 3))
+        {
+            if(numPieces == targetPieces)
+            {
+                Debug.Log("Gracias por jugar :'3");
+                SceneManager.LoadScene ("e0");
+            }
+            else
+            {
+                Debug.Log("Debes juntar los " + targetPieces + " fragmentos de la llave para atravesar el portal");
             }
         }
     }
@@ -64,17 +79,17 @@ public class PlayerController : MonoBehaviour
 
     private void UpdatePieces()
     {
-        txtPieces.text = "Piezas de la llave: " + numPieces + " / " + targetPieces;
+        //txtPieces.text = "Piezas de la llave: " + numPieces + " / " + targetPieces;
     }
 
     private void UpdateBonusTime()
     {
-        txtBonus.text = "Bonus time: "+ bonusTime;
+        //txtBonus.text = "Bonus time: "+ bonusTime;
     }
 
     private void UpdateApples()
     {
-        txtApples.text = "Apples x "+ apples;
+        //txtApples.text = "Apples x "+ apples;
     }
 
     public void reduceHealth(int damage)
