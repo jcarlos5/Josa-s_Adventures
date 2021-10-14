@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
                 txtBonus.text = "";
             }
         }
+
+        
+
     }
 
     private void OnTriggerEnter(Collider obj)
@@ -60,6 +63,12 @@ public class PlayerController : MonoBehaviour
             UpdateApples();
         }
         Destroy(obj.gameObject);
+
+        if(Input.GetKeyDown( KeyCode.E) && (obj.gameObject.tag ==  "Enemy"))
+        {
+            obj.GetComponent<EnemyBehavior>().TakeDamage(10);
+            
+        }
     }
 
     private void UpdatePieces()
