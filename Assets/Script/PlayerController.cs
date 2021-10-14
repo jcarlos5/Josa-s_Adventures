@@ -75,21 +75,27 @@ public class PlayerController : MonoBehaviour
             UpdateApples();
         }
         Destroy(obj.gameObject);
+
+        if(Input.GetKeyDown( KeyCode.E) && (obj.gameObject.tag ==  "Enemy"))
+        {
+            obj.GetComponent<EnemyBehavior>().TakeDamage(10);
+            
+        }
     }
 
     private void UpdatePieces()
     {
-        //txtPieces.text = "Piezas de la llave: " + numPieces + " / " + targetPieces;
+        txtPieces.text = "Piezas de la llave: " + numPieces + " / " + targetPieces;
     }
 
     private void UpdateBonusTime()
     {
-        //txtBonus.text = "Bonus time: "+ bonusTime;
+        txtBonus.text = "Bonus time: "+ bonusTime;
     }
 
     private void UpdateApples()
     {
-        //txtApples.text = "Apples x "+ apples;
+        txtApples.text = "Apples x "+ apples;
     }
 
     public void reduceHealth(int damage)
