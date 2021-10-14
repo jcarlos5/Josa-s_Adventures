@@ -8,6 +8,8 @@ TagManager:
   - Apple
   - FirstAidKit
   - player
+  - Fire
+  - ImmortalityPocion
   layers:
   - Default
   - TransparentFX
