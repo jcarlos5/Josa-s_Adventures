@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private bool isImmortal = false;
+    public bool isImmortal = false;
     private int numPieces = 0;
-    private int health = 100;
+    public int health = 100;
     private int apples = 0;
 
     public Text txtPieces, txtBonus, txtApples;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         if (isImmortal){
             bonusTime -= Time.deltaTime;
             UpdateBonusTime();
-            if (bonusTime == 0){
+            if (bonusTime <= 0){
                 isImmortal = false;
                 txtBonus.text = "";
             }
@@ -41,7 +41,14 @@ public class PlayerController : MonoBehaviour
         }
         else if(obj.gameObject.tag ==  "FirstAidKit")
         {
-            health += 20;
+            if(health<=80)
+            {
+                health += 20;
+            }
+            else
+            {
+                health = 100;
+            }
         }
         else if(obj.gameObject.tag ==  "ImmortalityPocion")
         {
@@ -67,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateApples()
     {
-        txtApples.text = "x "+ apples;
+        txtApples.text = "Apples x "+ apples;
     }
 
     public void reduceHealth(int damage)
