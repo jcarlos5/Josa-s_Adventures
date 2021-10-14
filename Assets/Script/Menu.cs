@@ -5,25 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Jugar()
+    public void Game()
     {
         SceneManager.LoadScene ("e1");
     }
 
-    public void Salir()
+    public void Exit()
     {
         Application.Quit();
+        Debug.Log("salio del juego");
     }
 }
