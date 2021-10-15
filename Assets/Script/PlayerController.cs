@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -13,11 +14,13 @@ public class PlayerController : MonoBehaviour
     public Text txtPieces, txtBonus, txtApples;
     public int targetPieces = 4;
     public float bonusTime = 30f;
+    private Vector3 portalPosition;
 
     private void Start()
     {
         UpdatePieces();
         UpdateApples();
+        portalPosition = GameObject.FindWithTag("Portal").transform.position;
     }
 
     private void Update()
@@ -30,6 +33,18 @@ public class PlayerController : MonoBehaviour
                 txtBonus.text = "";
             }
         }
+        if(Input.GetKeyDown( KeyCode.E ) && (transform.position.x < portalPosition[0] + 3 && transform.position.x > portalPosition[0] - 3) && (transform.position.z < portalPosition[2] + 3 && transform.position.z > portalPosition[2] - 3))
+        {
+            if(numPieces == targetPieces)
+            {
+                Debug.Log("Gracias por jugar :'3");
+                SceneManager.LoadScene ("e0");
+            }
+            else
+            {
+                Debug.Log("Debes juntar los " + targetPieces + " fragmentos de la llave para atravesar el portal");
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider obj)
@@ -37,6 +52,7 @@ public class PlayerController : MonoBehaviour
         if (obj.gameObject.tag ==  "KeyPiece")
         {
             numPieces++;
+            Destroy(obj.gameObject);
             UpdatePieces();
         }
         else if(obj.gameObject.tag ==  "FirstAidKit")
@@ -49,17 +65,24 @@ public class PlayerController : MonoBehaviour
             {
                 health = 100;
             }
+            Destroy(obj.gameObject);
         }
         else if(obj.gameObject.tag ==  "ImmortalityPocion")
         {
             isImmortal = true;
+            Destroy(obj.gameObject);
         }
         else if(obj.gameObject.tag ==  "Apple")
         {
             apples++;
+            Destroy(obj.gameObject);
             UpdateApples();
         }
-        Destroy(obj.gameObject);
+
+        if(Input.GetMouseButtonDown(0) && (obj.gameObject.tag ==  "Enemy"))
+        {
+            obj.GetComponent<BoximonBehavior>().TakeDamage(10);
+        }
     }
 
     private void UpdatePieces()
