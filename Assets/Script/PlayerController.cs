@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public int health = 100;
     private int apples = 0;
     private Slider healthSlider;
+    private Animator PlayerAnimator;
 
     public Text txtPieces, txtBonus, txtApples;
     public int targetPieces = 4;
@@ -18,11 +19,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 portalPosition;
     public GameObject healthBar;
 
+    public GameObject PlayerSkin;
+
     void Start()
     {
         UpdatePieces();
         UpdateApples();
         portalPosition = GameObject.FindWithTag("Portal").transform.position;
+        PlayerAnimator = PlayerSkin.GetComponent<Animator>();
         healthSlider = healthBar.GetComponent<Slider>();
         UpdateHealth();
     }
@@ -42,8 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             if(numPieces == targetPieces)
             {
-                Debug.Log("Gracias por jugar :'3");
-                SceneManager.LoadScene ("eo");
+                resetLevel();
             }
             else
             {
@@ -90,8 +93,15 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && (obj.gameObject.tag ==  "Enemy"))
         {
-            obj.GetComponent<BoximonBehavior>().TakeDamage(50);
+            PlayerAnimator.SetBool("IsAttacking", true);
+            obj.GetComponent<BoximonBehavior>().TakeDamage(100);
+            Invoke("StopAttack", 2f);
         }
+    }
+
+    private void StopAttack()
+    {
+        PlayerAnimator.SetBool("IsAttacking", false);
     }
 
     void OnCollisionEnter(Collision obj)
@@ -130,7 +140,7 @@ public class PlayerController : MonoBehaviour
             UpdateHealth();
             if(health <= 0)
             {
-                
+                resetLevel();
             }
         }
     }

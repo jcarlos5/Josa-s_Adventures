@@ -43,6 +43,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        [Header("Variables propias")]
+        public GameObject PlayerSkin;
+        private Animator PlayerAnimator;
+
         // Use this for initialization
         private void Start()
         {
@@ -56,6 +60,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            PlayerAnimator = PlayerSkin.GetComponent<Animator>();
         }
 
 
@@ -75,6 +80,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 PlayLandingSound();
                 m_MoveDir.y = 0f;
                 m_Jumping = false;
+
+                //Animación
+                PlayerAnimator.SetBool("IsJumping", m_Jumping);
             }
             if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
             {
@@ -120,12 +128,37 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;
+
+                    //Animación
+                    PlayerAnimator.SetBool("IsJumping", m_Jumping);
                 }
             }
             else
             {
                 m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
             }
+
+            //Animación
+            if(m_MoveDir.x != 0 || m_MoveDir.z != 0)
+            {
+                if(speed != m_WalkSpeed)
+                {
+                    PlayerAnimator.SetBool("IsRunning", true);
+                    PlayerAnimator.SetBool("IsWalking", false);
+                }
+                else
+                {
+                    PlayerAnimator.SetBool("IsRunning", false);
+                    PlayerAnimator.SetBool("IsWalking", true);
+                }
+            }
+            else
+            {
+                PlayerAnimator.SetBool("IsWalking", false);
+                PlayerAnimator.SetBool("IsRunning", false);
+            }
+
+
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
