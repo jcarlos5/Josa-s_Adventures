@@ -1156,11 +1156,11 @@ MonoBehaviour:
     m_Bits: 256
   walkPointRange: 5
   timeBetweenAttacks: 0.5
-  projectile: {fileID: 1779363336714565220, guid: dc4ead82556356048855bc9a9f5f15c8, type: 3}
   sightRange: 20
   attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
+  projectile: {fileID: 1779363336714565220, guid: dc4ead82556356048855bc9a9f5f15c8, type: 3}
 --- !u!195 &5603384943865608769
 NavMeshAgent:
   m_ObjectHideFlags: 0
