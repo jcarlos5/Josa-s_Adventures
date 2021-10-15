@@ -9644,7 +9644,7 @@ GameObject:
   - component: {fileID: 567808040085382072}
   - component: {fileID: 567808040086588030}
   m_Layer: 3
-  m_Name: VenomSpell
+  m_Name: Portal
   m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
