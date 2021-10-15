@@ -10,17 +10,21 @@ public class PlayerController : MonoBehaviour
     private int numPieces = 0;
     public int health = 100;
     private int apples = 0;
+    private Slider healthSlider;
 
     public Text txtPieces, txtBonus, txtApples;
     public int targetPieces = 4;
     public float bonusTime = 30f;
     private Vector3 portalPosition;
+    public GameObject healthBar;
 
     void Start()
     {
         UpdatePieces();
         UpdateApples();
         portalPosition = GameObject.FindWithTag("Portal").transform.position;
+        healthSlider = healthBar.GetComponent<Slider>();
+        UpdateHealth();
     }
 
     void Update()
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
             {
                 health = 100;
             }
+            UpdateHealth();
             Destroy(obj.gameObject);
         }
         else if(obj.gameObject.tag ==  "ImmortalityPocion")
@@ -112,10 +117,16 @@ public class PlayerController : MonoBehaviour
         txtApples.text = "Apples x "+ apples;
     }
 
+    private void UpdateHealth()
+    {
+        healthSlider.value = health;
+    }
+
     public void reduceHealth(int damage)
     {
         if (!isImmortal){
             health -= damage;
+            UpdateHealth();
             if(health <= 0)
             {
                 Debug.Log("Game over.");
