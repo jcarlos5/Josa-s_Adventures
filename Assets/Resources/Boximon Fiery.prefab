@@ -1148,15 +1148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5603384943865608769}
-  player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 1024
-  health: 100
-  walkPoint: {x: 0, y: 0, z: 0}
+    m_Bits: 256
   walkPointRange: 5
   timeBetweenAttacks: 0.5
   projectile: {fileID: 1779363336714565220, guid: dc4ead82556356048855bc9a9f5f15c8, type: 3}
