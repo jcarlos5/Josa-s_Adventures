@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BoximonBehavior : MonoBehaviour
 {
+    //Mesh del agente enemigo
     public NavMeshAgent agent;
 
+    //Layers para reconocer tierra y jugador
     public LayerMask whatIsGround, whatIsPlayer;
 
-    float health = 100;
+    //player position
     Transform player;
+
+    //enemy health
+    float health = 100;
 
     //Patroling
     Vector3 walkPoint;
@@ -19,13 +25,13 @@ public class BoximonBehavior : MonoBehaviour
 
     //Attacking
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    public static bool alreadyAttacked;
 
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    public GameObject projectile;
+    //player
     GameObject playerGameObject;
 
     private void Awake(){
@@ -84,10 +90,13 @@ public class BoximonBehavior : MonoBehaviour
             agent.SetDestination(player.position);
             transform.LookAt(player);
             playerGameObject.GetComponent<PlayerController>().reduceHealth(10);
+            
             ///End of attack code
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+            
+
     }
     private void ResetAttack(){
         alreadyAttacked = false;
@@ -96,9 +105,14 @@ public class BoximonBehavior : MonoBehaviour
     public void TakeDamage(int damage){
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0){
+            Invoke(nameof(DestroyEnemy), 0.5f);
+            ResetAttack();
+            }
     }
     private void DestroyEnemy(){
         Destroy(gameObject);
     }
+
+    
 }
