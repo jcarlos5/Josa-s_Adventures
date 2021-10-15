@@ -78,10 +78,13 @@ public class PlayerController : MonoBehaviour
             Destroy(obj.gameObject);
             UpdateApples();
         }
+    }
 
+    void OnTriggerStay(Collider obj)
+    {
         if(Input.GetMouseButtonDown(0) && (obj.gameObject.tag ==  "Enemy"))
         {
-            obj.GetComponent<BoximonBehavior>().TakeDamage(100);
+            obj.GetComponent<BoximonBehavior>().TakeDamage(50);
         }
     }
 
