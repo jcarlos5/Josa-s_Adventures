@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerAnimator.SetBool("IsAttacking", true);
             obj.GetComponent<BoximonBehavior>().TakeDamage(100);
-            Invoke("StopAttack", 2f);
+            Invoke("StopAttack", 1f);
         }
     }
 
