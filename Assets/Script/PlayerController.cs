@@ -16,14 +16,14 @@ public class PlayerController : MonoBehaviour
     public float bonusTime = 30f;
     private Vector3 portalPosition;
 
-    private void Start()
+    void Start()
     {
         UpdatePieces();
         UpdateApples();
         portalPosition = GameObject.FindWithTag("Portal").transform.position;
     }
 
-    private void Update()
+    void Update()
     {
         if (isImmortal){
             bonusTime -= Time.deltaTime;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             if(numPieces == targetPieces)
             {
                 Debug.Log("Gracias por jugar :'3");
-                SceneManager.LoadScene ("e0");
+                SceneManager.LoadScene ("eo");
             }
             else
             {
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider obj)
+    void OnTriggerEnter(Collider obj)
     {
         if (obj.gameObject.tag ==  "KeyPiece")
         {
@@ -81,7 +81,16 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && (obj.gameObject.tag ==  "Enemy"))
         {
-            obj.GetComponent<BoximonBehavior>().TakeDamage(10);
+            obj.GetComponent<BoximonBehavior>().TakeDamage(100);
+        }
+    }
+
+    void OnCollisionEnter(Collision obj)
+    {
+        if(obj.gameObject.tag ==  "Ball")
+        {
+            reduceHealth(10);
+            Destroy(obj.gameObject);
         }
     }
 
@@ -104,6 +113,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!isImmortal){
             health -= damage;
+            if(health <= 0)
+            {
+                Debug.Log("Game over.");
+                SceneManager.LoadScene("eo");
+            }
         }
     }
 }

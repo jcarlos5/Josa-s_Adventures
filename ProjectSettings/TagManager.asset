@@ -12,6 +12,7 @@ TagManager:
   - ImmortalityPocion
   - Enemy
   - Portal
+  - Ball
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,6 @@ TagManager:
   - 
   - 
   - prueba
-  - 
   - 
   - 
   - 
