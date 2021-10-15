@@ -10,6 +10,7 @@ public class BoximonBehavior : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     float health = 100;
+    Transform player;
 
     //Patroling
     Vector3 walkPoint;
