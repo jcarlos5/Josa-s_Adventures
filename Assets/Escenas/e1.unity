@@ -1274,6 +1274,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7162168
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0000000037252903
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6978779
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000000037252903
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726775028233434778, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 88.514
+      objectReference: {fileID: 0}
     - target: {fileID: 6933406763961184189, guid: 4fce47753cd682f4f85f9d899486e8a9, type: 3}
       propertyPath: m_Name
       value: Office2
@@ -1786,6 +1818,10 @@ PrefabInstance:
       propertyPath: txtPieces
       value: 
       objectReference: {fileID: 411632165}
+    - target: {fileID: 5127632456247943267, guid: 92e6c42650c566349878f4b69650f210, type: 3}
+      propertyPath: targetPieces
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5127632456464838156, guid: 92e6c42650c566349878f4b69650f210, type: 3}
       propertyPath: m_RootOrder
       value: 90
