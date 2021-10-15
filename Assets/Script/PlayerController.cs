@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
             UpdateBonusTime();
             if (bonusTime <= 0){
                 isImmortal = false;
+                bonusTime = 30f;
                 txtBonus.text = "";
             }
         }
@@ -129,9 +130,20 @@ public class PlayerController : MonoBehaviour
             UpdateHealth();
             if(health <= 0)
             {
-                Debug.Log("Game over.");
-                SceneManager.LoadScene("eo");
+                
             }
         }
+    }
+
+    private void resetLevel()
+    {
+        Debug.Log("Game over.");
+        health = 100;
+        numPieces = 0;
+        apples = 0;
+        UpdateApples();
+        UpdatePieces();
+        UpdateHealth();
+        SceneManager.LoadScene("eo");
     }
 }
