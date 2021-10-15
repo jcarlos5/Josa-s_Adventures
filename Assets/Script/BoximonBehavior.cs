@@ -26,22 +26,21 @@ public class BoximonBehavior : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange;
 
     public GameObject projectile;
+    GameObject playerGameObject;
 
-    private void Awake()
-    {
-        player = GameObject.FindWithTag("Player").transform;
+    private void Awake(){
+        playerGameObject = GameObject.FindWithTag("Player");
+        player = playerGameObject.transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -52,8 +51,7 @@ public class BoximonBehavior : MonoBehaviour
         
     }
 
-    private void Patroling()
-    {
+    private void Patroling(){
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -65,8 +63,7 @@ public class BoximonBehavior : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
-    private void SearchWalkPoint()
-    {
+    private void SearchWalkPoint(){
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
@@ -77,37 +74,31 @@ public class BoximonBehavior : MonoBehaviour
             walkPointSet = true;
     }
 
-    private void ChasePlayer()
-    {
+    private void ChasePlayer(){
         agent.SetDestination(player.position);
     }
 
-    private void AttackPlayer()
-    {
-        if (!alreadyAttacked)
-        {
+    private void AttackPlayer(){
+        if (!alreadyAttacked){
             ///Attack code here
             agent.SetDestination(player.position);
             transform.LookAt(player);
-
+            playerGameObject.GetComponent<PlayerController>().reduceHealth(10);
             ///End of attack code
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
-    private void ResetAttack()
-    {
+    private void ResetAttack(){
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
-    {
+    public void TakeDamage(int damage){
         health -= damage;
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
-    private void DestroyEnemy()
-    {
+    private void DestroyEnemy(){
         Destroy(gameObject);
     }
 }
