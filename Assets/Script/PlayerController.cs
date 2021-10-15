@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && (obj.gameObject.tag ==  "Enemy"))
         {
-            obj.GetComponent<EnemyBehavior>().TakeDamage(10);
+            obj.GetComponent<BoximonBehavior>().TakeDamage(10);
         }
     }
 
