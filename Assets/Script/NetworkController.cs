@@ -108,7 +108,7 @@ public class NetworkController : MonoBehaviourPunCallbacks
 
     public void OnStartGameButtonClick()
     {
-        PhotonNetwork.LoadLevel("MultiplayerScene1");
+        PhotonNetwork.LoadLevel("xdPruebita");
     }
 
     public void OnExitButtonClick()
