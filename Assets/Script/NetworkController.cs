@@ -106,6 +106,11 @@ public class NetworkController : MonoBehaviourPunCallbacks
         ConfigurationPanel.gameObject.SetActive(true);
     }
 
+    public void OnStartGameButtonClick()
+    {
+        PhotonNetwork.LoadLevel("MultiplayerScene1");
+    }
+
     public void OnExitButtonClick()
     {
         PhotonNetwork.LeaveLobby();
