@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class NewPlayerController : MonoBehaviour
 {
@@ -30,5 +33,12 @@ public class NewPlayerController : MonoBehaviour
     private void StopAttack()
     {
         inAttack = false;
+    }
+
+    public void ExitGame()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();
+        SceneManager.LoadScene ("eo");
     }
 }
