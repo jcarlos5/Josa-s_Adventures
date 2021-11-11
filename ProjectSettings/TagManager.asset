@@ -4,34 +4,51 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - KeyPiece
-  - Apple
-  - FirstAidKit
-  - player
-  - Fire
-  - ImmortalityPocion
+  - Action
+  - AutoCrouch
+  - Ragdoll
+  - Ignore Ragdoll
+  - Boss
   - Enemy
-  - Portal
-  - Ball
+  - CompanionAI
+  - Weapon
+  - LookAt
+  - Dirt
+  - Wood
+  - Metal
+  - Concrete
+  - Glass
+  - Water
+  - LadderTrigger
+  - ExitWater
+  - Barrel
+  - FreeClimb
+  - ClimbDirection
+  - Zipline
+  - PlayerUI
+  - Collectable
+  - CoverPoint
+  - Interactable
+  - AIAction
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Objects
+  - 
   - Water
   - UI
-  - terrain
-  - 
-  - PersonajeP
   - 
   - 
-  - prueba
+  - Player
+  - Enemy
+  - CompanionAI
+  - Triggers
+  - StopMove
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - HeadTrack
+  - BodyPart
+  - BlockAIRayCast
+  - Pushable
   - 
   - 
   - 

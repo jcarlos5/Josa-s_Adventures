@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
@@ -37,6 +38,7 @@ public class NetworkController : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.JoinLobby();
     }
 
@@ -87,18 +89,31 @@ public class NetworkController : MonoBehaviourPunCallbacks
         {
             Destroy(PlayersList.transform.GetChild(i).gameObject);
         }
-        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+        int n = 0;
         foreach (Player player in PhotonNetwork.PlayerList)
         {
             GameObject item = Instantiate(PlayerItem, PlayersList.transform);
-            Debug.Log(player.NickName);
             item.transform.GetChild(0).GetComponent<Text>().text = player.NickName;
+            item.transform.position = item.transform.position - new Vector3(0, 45f*n, 0);
+            n++;
         }
+    }
+
+    public void OnLeftRoomButtonClick()
+    {
+        PhotonNetwork.LeaveRoom();
+        RoomPanel.gameObject.SetActive(false);
+        ConfigurationPanel.gameObject.SetActive(true);
+    }
+
+    public void OnExitButtonClick()
+    {
+        PhotonNetwork.LeaveLobby();
+        SceneManager.LoadScene("eo");
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-
         ShowPlayersList();
     }
 
