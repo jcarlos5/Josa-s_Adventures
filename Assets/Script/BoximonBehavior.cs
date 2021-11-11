@@ -111,9 +111,18 @@ public class BoximonBehavior : MonoBehaviour
             ResetAttack();
             }
     }
+
     private void DestroyEnemy(){
         Destroy(gameObject);
     }
 
-    
+    void OnCollisionEnter(Collision obj){
+        if(obj.gameObject.tag == "Player")
+        {
+            if(obj.gameObject.GetComponent<NewPlayerController>().inAttack)
+            {
+                DestroyEnemy();
+            }
+        }
+    }
 }
