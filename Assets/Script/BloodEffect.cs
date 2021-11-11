@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BloodEffect : MonoBehaviour
 {
     public Image bloodEffect;
-    public bool isAttacking;
+    public bool isGettingHurt;
     public float r, g, b, a;
     // Start is called before the first frame update
     void Start()
@@ -21,15 +21,15 @@ public class BloodEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isAttacking = BoximonBehavior.alreadyAttacked;
-        Debug.Log(isAttacking);
-        if (isAttacking){
+        isGettingHurt = PlayerController.isBeingAttacked;
+        
+        if (isGettingHurt){
             a = Mathf.Clamp(a,0,1f);
             a += 0.1f;
             ChangeColor();
         }else{
             a = Mathf.Clamp(a,0,1f);
-            a -= 0.01f;
+            a -= 0.08f;
             ChangeColor();
         }
         

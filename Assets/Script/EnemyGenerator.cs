@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyGenerator : MonoBehaviour
 {
+    
     public GameObject boximon;
+    private List<GameObject> enemies;
     int xPos;
     int zPos;
     int enemyCount;
+    private float range = 500.0f;
+    //[Range (-480,480)]
 
     IEnumerator Generator(){
-        while (enemyCount < 3000) {
-            xPos = Random.Range(-500, 500);
-            zPos = Random.Range(-500, 500);
-            Instantiate(boximon, new Vector3(xPos, 46, zPos), Quaternion.identity);
+        for (int i = 0; i < 800; i++)
+        {   
+            enemies = new List<GameObject>();
+            //xPos = Random.Range(-500, 500);
+            //zPos = Random.Range(-500, 500);
+            GameObject spawned = Instantiate(boximon, RandomNavmeshLocation(range), Quaternion.identity) as GameObject ;
+            enemies.Add(spawned);
             yield return new WaitForSeconds(0.01f);
-            enemyCount++;
         }
+        
     }
 
     // Start is called before the first frame update
@@ -29,5 +37,20 @@ public class EnemyGenerator : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Vector3 RandomNavmeshLocation(float radius)
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        //Debug.Log(randomDirection);
+        //randomDirection += transform.position;
+        //Debug.Log(randomDirection);
+        UnityEngine.AI.NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+        if (UnityEngine.AI.NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
+        {
+            finalPosition = hit.position;
+        }
+        return finalPosition;
     }
 }

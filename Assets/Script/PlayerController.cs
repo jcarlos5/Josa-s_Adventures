@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private int apples = 0;
     private Slider healthSlider;
     private Animator PlayerAnimator;
+    public static bool isBeingAttacked = false;
 
     public Text txtPieces, txtBonus, txtApples;
     public int targetPieces = 4;
@@ -137,12 +138,18 @@ public class PlayerController : MonoBehaviour
     {
         if (!isImmortal){
             health -= damage;
+            isBeingAttacked = true;
             UpdateHealth();
             if(health <= 0)
             {
                 resetLevel();
             }
         }
+        Invoke("resetBlood", 1f);
+    }
+
+    public void resetBlood(){
+        isBeingAttacked = false;
     }
 
     private void resetLevel()
