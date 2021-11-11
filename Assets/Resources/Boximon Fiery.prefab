@@ -900,7 +900,6 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1150,7 +1149,7 @@ MonoBehaviour:
   agent: {fileID: 5603384943865608769}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1160,7 +1159,6 @@ MonoBehaviour:
   attackRange: 1
   playerInSightRange: 0
   playerInAttackRange: 0
-  bloodEffect: {fileID: 0}
 --- !u!195 &5603384943865608769
 NavMeshAgent:
   m_ObjectHideFlags: 0

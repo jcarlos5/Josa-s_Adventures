@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Invector.vCharacterController;
 
 public class BoximonBehavior : MonoBehaviour
 {
@@ -35,14 +36,14 @@ public class BoximonBehavior : MonoBehaviour
     GameObject playerGameObject;
 
     private void Awake(){
-        playerGameObject = GameObject.FindWithTag("Player");
-        player = playerGameObject.transform;
-        agent = GetComponent<NavMeshAgent>();
+        
     }
 
     // Start is called before the first frame update
     void Start(){
-        
+        playerGameObject = GameObject.FindWithTag("Player");
+        player = playerGameObject.transform;
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -89,7 +90,7 @@ public class BoximonBehavior : MonoBehaviour
             ///Attack code here
             agent.SetDestination(player.position);
             transform.LookAt(player);
-            playerGameObject.GetComponent<PlayerController>().reduceHealth(10);
+            playerGameObject.GetComponent<vThirdPersonController>().AddHealth(-10);
             
             ///End of attack code
             alreadyAttacked = true;
