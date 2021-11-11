@@ -30,6 +30,12 @@ TagManager:
   - CoverPoint
   - Interactable
   - AIAction
+  - KeyPiece
+  - FirstAidKit
+  - Apple
+  - ImmortalityPocion
+  - Fire
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -37,7 +43,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - terrain
   - 
   - Player
   - Enemy
