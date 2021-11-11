@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
-    public void Game()
+    public void Jugar()
     {
         SceneManager.LoadScene ("e1");
+    }
+
+    public void MultiJugar(){
+        SceneManager.LoadScene ("MenuMultiplayer");
     }
 
     public void Exit()
     {
         Application.Quit();
-        Debug.Log("salio del juego");
+        Debug.Log("Saliste del Juego");
     }
 }
