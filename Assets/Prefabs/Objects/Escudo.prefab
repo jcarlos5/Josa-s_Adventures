@@ -941,7 +941,7 @@ MonoBehaviour:
     changeAttributes: 0
     autoEquip: 1
     addToEquipArea: 1
-    indexArea: 0
+    indexArea: 1
 --- !u!114 &11454178
 MonoBehaviour:
   m_ObjectHideFlags: 0

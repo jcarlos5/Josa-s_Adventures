@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using Invector.vCharacterController;
 
-public class BoximonBehavior : MonoBehaviour
+public class BoximonBehaviorMultiplayer : MonoBehaviour
 {
     //Mesh del agente enemigo
     public NavMeshAgent agent;
@@ -36,13 +36,14 @@ public class BoximonBehavior : MonoBehaviour
     GameObject playerGameObject;
 
     private void Awake(){
-        playerGameObject = GameObject.FindWithTag("Player");
-        player = playerGameObject.transform;
-        agent = GetComponent<NavMeshAgent>();
+        
     }
 
     // Start is called before the first frame update
     void Start(){
+        playerGameObject = GameObject.FindWithTag("Player");
+        player = playerGameObject.transform;
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -89,7 +90,7 @@ public class BoximonBehavior : MonoBehaviour
             ///Attack code here
             agent.SetDestination(player.position);
             transform.LookAt(player);
-            playerGameObject.GetComponent<PlayerController>().reduceHealth(10);
+            playerGameObject.GetComponent<vThirdPersonController>().AddHealth(-10);
             
             ///End of attack code
             alreadyAttacked = true;
@@ -113,5 +114,15 @@ public class BoximonBehavior : MonoBehaviour
 
     private void DestroyEnemy(){
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision obj){
+        if(obj.gameObject.tag == "Player")
+        {
+            if(obj.gameObject.GetComponent<NewPlayerController>().inAttack)
+            {
+                DestroyEnemy();
+            }
+        }
     }
 }

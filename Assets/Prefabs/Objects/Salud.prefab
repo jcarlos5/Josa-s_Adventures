@@ -941,7 +941,7 @@ MonoBehaviour:
     changeAttributes: 0
     autoEquip: 1
     addToEquipArea: 1
-    indexArea: 0
+    indexArea: 2
 --- !u!114 &11454178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,15 +972,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: bd45254f7e8250942979bb5f4b8298b7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: bd45254f7e8250942979bb5f4b8298b7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: bd45254f7e8250942979bb5f4b8298b7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: bd45254f7e8250942979bb5f4b8298b7, type: 3}
       propertyPath: m_LocalPosition.x
