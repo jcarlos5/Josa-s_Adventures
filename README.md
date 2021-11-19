@@ -9,4 +9,4 @@ Unity third person game
 - Sara Benel (@asloth)
 - José Vilchez (@jcarlos5)
 - Cinthya Yomona (@CinthyaYomona)
-- Shirley Orrego
+- Shirley Orrego (@ShirleyOrrego)
