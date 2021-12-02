@@ -15,16 +15,18 @@ MonoBehaviour:
   itemTypeEnumValues:
   - Consumable
   - Builder
+  - Collectable
   itemAttributesEnumValues:
   - Health
   - MaxHealth
   - MaxStamina
   - Stamina
   itemTypeEnumFormats:
+  - Alimentos
   - 
-  - 
+  - Coleccionables
   itemAttributesEnumFormats:
-  - 
-  - 
+  - "Poci\xF3n de salud"
+  - "Poci\xF3n de salud m\xE1xima"
   - 
   - 
