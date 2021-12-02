@@ -89,13 +89,10 @@ public class NetworkController : MonoBehaviourPunCallbacks
         {
             Destroy(PlayersList.transform.GetChild(i).gameObject);
         }
-        int n = 0;
         foreach (Player player in PhotonNetwork.PlayerList)
         {
             GameObject item = Instantiate(PlayerItem, PlayersList.transform);
             item.transform.GetChild(0).GetComponent<Text>().text = player.NickName;
-            item.transform.position = item.transform.position - new Vector3(0, 45f*n, 0);
-            n++;
         }
     }
 
