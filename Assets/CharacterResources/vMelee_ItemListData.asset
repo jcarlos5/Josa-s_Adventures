@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8044845030169775627
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
+  m_Name: "Poci\xF3n de inmortalidad"
+  m_EditorClassIdentifier: 
+  id: 14
+  description: Te vuelve inmune por un tiempo
+  type: 0
+  icon: {fileID: 21300000, guid: d9c1bd6192730844d80dba55ed7d6037, type: 3}
+  stackable: 1
+  maxStack: 1
+  amount: 0
+  originalObject: {fileID: 0}
+  dropObject: {fileID: 0}
+  attributes: []
+  isInEquipArea: 0
+  destroyAfterUse: 1
+  canBeUsed: 1
+  canBeDroped: 1
+  canBeDestroyed: 1
+  EnableAnim: LowBack
+  DisableAnim: LowBack
+  enableDelayTime: 0.5
+  disableDelayTime: 0.5
+  customHandler: 
+  twoHandWeapon: 0
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-4074553019324382240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
+  m_Name: Moneda
+  m_EditorClassIdentifier: 
+  id: 15
+  description: "Puedes recolectarlas para comprar art\xEDculos en la tienda"
+  type: 7
+  icon: {fileID: 21300000, guid: a3d0230bbec3e394985a23ebed2bec69, type: 3}
+  stackable: 1
+  maxStack: 200
+  amount: 0
+  originalObject: {fileID: 0}
+  dropObject: {fileID: 0}
+  attributes: []
+  isInEquipArea: 0
+  destroyAfterUse: 0
+  canBeUsed: 0
+  canBeDroped: 1
+  canBeDestroyed: 1
+  EnableAnim: LowBack
+  DisableAnim: LowBack
+  enableDelayTime: 0.5
+  disableDelayTime: 0.5
+  customHandler: 
+  twoHandWeapon: 0
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +99,8 @@ MonoBehaviour:
   - {fileID: 11437076}
   - {fileID: 11411708}
   - {fileID: 5857777440017114343}
+  - {fileID: -8044845030169775627}
+  - {fileID: -4074553019324382240}
   - {fileID: 114043347838910644}
   inEdition: 0
   itemsHidden: 1
@@ -148,14 +222,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
-  m_Name: Great Shield
+  m_Name: Super escudo
   m_EditorClassIdentifier: 
   id: 9
-  description: 'Melee Shield
-
-    Recoil: Hard
-
-    Bonus: Break Attack '
+  description: Este si te protege de sus mentiras ;)
   type: 6
   icon: {fileID: 21300000, guid: 4a46b7c6ff6f17a4a95bfb58b3397585, type: 3}
   stackable: 0
@@ -200,10 +270,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
-  m_Name: Short Katana
+  m_Name: Katana
   m_EditorClassIdentifier: 
   id: 1
-  description: Melee Weapon
+  description: "Oh Dios m\xEDo! :o es una katana"
   type: 1
   icon: {fileID: 21300000, guid: 56e79d7e38be01c4c9171802884dfb05, type: 3}
   stackable: 0
@@ -356,12 +426,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
-  m_Name: Shield
+  m_Name: Escudo
   m_EditorClassIdentifier: 
   id: 6
-  description: 'Melee Shield
-
-    Recoil: Low'
+  description: Te protege contra todo, excepto sus mentiras
   type: 6
   icon: {fileID: 21300000, guid: 40e348f6451ddf7438089a59a033e57f, type: 3}
   stackable: 0
@@ -406,10 +474,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
-  m_Name: Max Health Potion
+  m_Name: "Poci\xF3n de salud m\xE1xima"
   m_EditorClassIdentifier: 
   id: 5
-  description: Increases the MaxHealth
+  description: Recupera toda tu salud
   type: 0
   icon: {fileID: 21300000, guid: e60fbeee962473a4bb627f9d7dc341b0, type: 3}
   stackable: 1
@@ -446,10 +514,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
-  m_Name: Axe
+  m_Name: Hacha
   m_EditorClassIdentifier: 
   id: 0
-  description: Melee Weapon
+  description: "Super hacha mamad\xEDsima"
   type: 1
   icon: {fileID: 21300000, guid: b2158c09d5bc7284989f53a47f7638e3, type: 3}
   stackable: 0
@@ -590,10 +658,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
-  m_Name: Health Potion
+  m_Name: "Poci\xF3n de salud"
   m_EditorClassIdentifier: 
   id: 2
-  description: Recover Health
+  description: Recupera un poco de salud
   type: 0
   icon: {fileID: 21300000, guid: 862e9f0d31ea667448a05c4d0ec24492, type: 3}
   stackable: 1
@@ -630,10 +698,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1adabc1ae49fd3c44a36cc9152ebb0f9, type: 3}
-  m_Name: Dual Swords
+  m_Name: Espada doble
   m_EditorClassIdentifier: 
   id: 24
-  description: Melee Weapon
+  description: "Tan cortante como sus mensajes.\n\xA1Ay! ya me cort\xE9 :c"
   type: 1
   icon: {fileID: 21300000, guid: a568bb7d845ecf140a30a74582d14f45, type: 3}
   stackable: 0
@@ -687,9 +755,9 @@ MonoBehaviour:
   id: 13
   description: Pieza de la llave de la nave de Josa
   type: 7
-  icon: {fileID: 21300000, guid: 683a779d9784a1d4d873a669e2b16bfc, type: 3}
+  icon: {fileID: 21300000, guid: 50d524978a6ad914fbd9b002c62857b2, type: 3}
   stackable: 1
-  maxStack: 1
+  maxStack: 4
   amount: 0
   originalObject: {fileID: 0}
   dropObject: {fileID: 0}

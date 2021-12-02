@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagicWall
       objectReference: {fileID: 0}
+    - target: {fileID: 189212, guid: 89e6b9ae156b16c42bd4da5aa094d1fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 463512, guid: 89e6b9ae156b16c42bd4da5aa094d1fc, type: 3}
       propertyPath: m_RootOrder
       value: 0
