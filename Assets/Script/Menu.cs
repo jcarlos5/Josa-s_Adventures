@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
 
     public void Jugar()
     {
-        SceneManager.LoadScene ("e1");
+        SceneManager.LoadScene ("AvatarMenu");
     }
 
     public void MultiJugar(){
