@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ChooseAvatar : MonoBehaviour
 {
-    public static GameObject avatarSelected;
-    public GameObject brady;
-    public GameObject josa;
-    public GameObject jolleen;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +18,16 @@ public class ChooseAvatar : MonoBehaviour
     }
 
     public void BradySelected(){
-        avatarSelected = brady;
-        SceneManager.LoadScene ("e1");
+        LevelMultiplayerController.SetAvatar("Player");
+        SceneManager.LoadScene ("MenuMultiplayer");
     }
     public void JolleenSelected(){
-        avatarSelected = jolleen;
-        SceneManager.LoadScene ("e1");
+        LevelMultiplayerController.SetAvatar("Jolleen");
+        SceneManager.LoadScene ("MenuMultiplayer");
     }
     public void JosaSelected(){
-        avatarSelected = josa;
-        SceneManager.LoadScene ("e1");
+        LevelMultiplayerController.SetAvatar("Player");
+        SceneManager.LoadScene ("MenuMultiplayer");
     }
 
 
