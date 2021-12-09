@@ -6,7 +6,8 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     private bool isPlayerInRange;
-    public TextMeshPro textD;
+    public TextMeshProUGUI textD;
+
     [TextArea (3,30)]
     public string[] parrafos;
     int index;
@@ -31,6 +32,21 @@ public class Dialogue : MonoBehaviour
         {
             botonContinue.SetActive(true);
         }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            activarBotonLeer();                
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            siguienteParrafo();                
+        }
+
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            botonCerrar();               
+        }
     }
 
     IEnumerator TextDialogo(){
@@ -43,7 +59,7 @@ public class Dialogue : MonoBehaviour
 
     public void siguienteParrafo(){
         botonContinue.SetActive(false);
-        if (index < parrafos.Length - 1)
+        if (index < parrafos.Length-1)
         {
             index++;
             textD.text="";
@@ -51,7 +67,7 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            textD.text = "";
+            textD.text = "...";
             botonContinue.SetActive(false);
             botonQuitar.SetActive(true);
         }
@@ -61,34 +77,23 @@ public class Dialogue : MonoBehaviour
     private void OnTriggerEnter(Collider collision) {
         if (collision.gameObject.CompareTag("Player"))
         {
-            /*isPlayerInRange = true;
-            ;*/
-            botonLeer.SetActive(true);
-            //Debug.Log("Se puede iniciar un diálogo");
+            botonLeer.SetActive(true);         
         }
         else
         {
             botonLeer.SetActive(false);
-            //Debug.Log("No se puede iniciar un diálogo");
         }
     }
 
     public void activarBotonLeer()
-    {
+    {            
         panelDialogo.SetActive(true);
-        StartCoroutine(TextDialogo());
+        botonLeer.SetActive(false);                    
     }
     public void botonCerrar()
     {
         panelDialogo.SetActive(false);
         botonLeer.SetActive(false);
     }
-/*
-    private void OnTriggerExit(Collider collision) {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            Debug.Log("No se puede iniciar un diálogo");
-        }
-    }*/
+
 }
