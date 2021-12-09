@@ -42,7 +42,7 @@ public class PlayerOfflineController : MonoBehaviour
         }
         if(Input.GetKeyDown( KeyCode.E ) && (transform.position.x < portalPosition[0] + 3 && transform.position.x > portalPosition[0] - 3) && (transform.position.z < portalPosition[2] + 3 && transform.position.z > portalPosition[2] - 3))
         {
-            if(numKeys==targetPieces)
+            if(numKeys>=targetPieces)
             {
                 txtMessage.text = "Bien hecho.";
                 Invoke("limpiartxtMsg", 2f);
