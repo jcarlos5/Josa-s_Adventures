@@ -8,9 +8,8 @@ public class Dialogue : MonoBehaviour
     private bool isPlayerInRange;
     public TextMeshProUGUI textD;
 
-    [TextArea (3,30)]
-    public string[] parrafos;
-    int index;
+    [TextArea (2,4)] public string[] parrafos;
+    int index = 0;
     public float velParrafo;
     public GameObject botonContinue;
     public GameObject botonQuitar;
@@ -27,18 +26,13 @@ public class Dialogue : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (textD.text == parrafos[index])
-        {
-            botonContinue.SetActive(true);
-        }
-
-        if (Input.GetKeyUp(KeyCode.E))
+    {        
+        if (Input.GetKeyUp(KeyCode.L))
         {
             activarBotonLeer();                
         }
 
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.P))
         {
             siguienteParrafo();                
         }
@@ -50,18 +44,17 @@ public class Dialogue : MonoBehaviour
     }
 
     IEnumerator TextDialogo(){
-        foreach (char letra in parrafos[index].ToCharArray())
+        foreach (char letra in parrafos[index])
         {
             textD.text += letra;
-            yield return new WaitForSeconds(velParrafo);
+            yield return new WaitForSecondsRealtime(velParrafo);
         }
     }
-
     public void siguienteParrafo(){
-        botonContinue.SetActive(false);
-        if (index < parrafos.Length-1)
-        {
-            index++;
+        botonContinue.SetActive(true);
+        index++;
+        if (index < parrafos.Length -1)
+        {            
             textD.text="";
             StartCoroutine(TextDialogo());
         }
