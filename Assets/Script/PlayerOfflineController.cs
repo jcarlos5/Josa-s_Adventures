@@ -11,7 +11,7 @@ public class PlayerOfflineController : MonoBehaviour
 {
     private Vector3 portalPosition;
     public bool isImmortal = false;
-    public Text txtPieces, txtBonus, txtMoney;
+    public Text txtPieces, txtBonus, txtMoney, txtMessage;
     public int targetPieces = 4;
     public float bonusTime = 30f;
     private vThirdPersonController invectorController;
@@ -42,8 +42,27 @@ public class PlayerOfflineController : MonoBehaviour
         }
         if(Input.GetKeyDown( KeyCode.E ) && (transform.position.x < portalPosition[0] + 3 && transform.position.x > portalPosition[0] - 3) && (transform.position.z < portalPosition[2] + 3 && transform.position.z > portalPosition[2] - 3))
         {
-            Debug.Log("Cruzaste el portal");
+            if(numKeys==targetPieces)
+            {
+                txtMessage.text = "Bien hecho.";
+                Invoke("limpiartxtMsg", 2f);
+                Invoke("IrAInicio", 2.5f);
+            }else
+            {
+                txtMessage.text = "Debes conseguir las " + targetPieces + " piezas de la llave.";
+                Invoke("limpiartxtMsg", 2f);
+            }
         }
+    }
+
+    public void IrAInicio()
+    {
+        SceneManager.LoadScene("eo");
+    }
+
+    public void limpiartxtMsg()
+    {
+        txtMessage.text = "";
     }
 
     private void UpdateBonusTime()
@@ -62,7 +81,7 @@ public class PlayerOfflineController : MonoBehaviour
         if (item != null)
         {
             numKeys = item.amount;
-            txtPieces.text = "Piezas de la llave: " + item.amount + " / " + targetPieces;
+            txtPieces.text = "Piezas de la llave: " + numKeys + " / " + targetPieces;
         }
     }
 
