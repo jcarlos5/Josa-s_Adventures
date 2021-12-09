@@ -11,6 +11,8 @@ public class Menu : MonoBehaviour
     void Start()
     {
         txtMoney.text = "Monedas: "+PlayerPrefs.GetInt("Money", 0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Jugar()
