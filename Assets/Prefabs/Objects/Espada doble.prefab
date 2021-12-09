@@ -941,8 +941,8 @@ MonoBehaviour:
     amount: 1
     attributes: []
     changeAttributes: 0
-    autoEquip: 0
-    addToEquipArea: 0
+    autoEquip: 1
+    addToEquipArea: 1
     indexArea: 0
 --- !u!114 &11454178
 MonoBehaviour:

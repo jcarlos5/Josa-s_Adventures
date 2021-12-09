@@ -41,13 +41,17 @@ public class BoximonBehaviorMultiplayer : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        playerGameObject = GameObject.FindWithTag("Player");
-        player = playerGameObject.transform;
-        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update(){
+        playerGameObject = GameObject.FindWithTag("Player");
+        if (playerGameObject != null) {
+            player = playerGameObject.transform;
+            agent = GetComponent<NavMeshAgent>();
+
+        }
+
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);

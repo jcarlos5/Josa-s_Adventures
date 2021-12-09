@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.SceneManagement;
 
 public class NewPlayerController : MonoBehaviour
 {

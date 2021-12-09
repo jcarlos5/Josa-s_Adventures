@@ -11,7 +11,7 @@ public class EnemyGenerator : MonoBehaviour
     int xPos;
     int zPos;
     int enemyCount;
-    private float range = 500.0f;
+    private float range = 480.0f;
     //[Range (-480,480)]
 
     IEnumerator Generator(){
@@ -41,12 +41,12 @@ public class EnemyGenerator : MonoBehaviour
 
     public Vector3 RandomNavmeshLocation(float radius)
     {
+        //Sets the position to be somewhere inside a sphere with radius 480
         Vector3 randomDirection = Random.insideUnitSphere * radius;
-        //Debug.Log(randomDirection);
-        //randomDirection += transform.position;
-        //Debug.Log(randomDirection);
+        
         UnityEngine.AI.NavMeshHit hit;
         Vector3 finalPosition = Vector3.zero;
+        //SamplePosition: Finds the nearest point based on the NavMesh within a specified range
         if (UnityEngine.AI.NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
         {
             finalPosition = hit.position;
