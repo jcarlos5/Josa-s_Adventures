@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerOfflineController : MonoBehaviour
 {
+    public Invector.vItemManager.ItemReference itemKey;
     private Vector3 portalPosition;
     public bool isImmortal = false;
     public Text txtPieces, txtBonus, txtMoney, txtMessage;
@@ -17,13 +18,14 @@ public class PlayerOfflineController : MonoBehaviour
     private vThirdPersonController invectorController;
     private vItemManager itemManager;
     private int numKeys, numMoney, globalMoney;
-
+    
     void Start()
     {
         invectorController = gameObject.GetComponent<vThirdPersonController>();
         portalPosition = GameObject.FindWithTag("Portal").transform.position;
         itemManager = gameObject.GetComponent<vItemManager>();
         LoadData();
+
         txtPieces.text = "Piezas de la llave: " + numKeys + " / " + targetPieces;
         txtMoney.text = "Monedas generales:  " + globalMoney;
     }
