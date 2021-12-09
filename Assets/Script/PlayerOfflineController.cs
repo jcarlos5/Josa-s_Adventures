@@ -24,8 +24,8 @@ public class PlayerOfflineController : MonoBehaviour
         invectorController = gameObject.GetComponent<vThirdPersonController>();
         portalPosition = GameObject.FindWithTag("Portal").transform.position;
         itemManager = gameObject.GetComponent<vItemManager>();
+        invectorController.AddHealth(100);
         LoadData();
-
         txtPieces.text = "Piezas de la llave: " + numKeys + " / " + targetPieces;
         txtMoney.text = "Monedas generales:  " + globalMoney;
     }
