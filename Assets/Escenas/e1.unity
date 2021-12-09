@@ -4489,7 +4489,7 @@ GameObject:
   - component: {fileID: 612020577}
   - component: {fileID: 612020576}
   m_Layer: 0
-  m_Name: prueba3
+  m_Name: EnemyGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4507,7 +4507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d10495b3f32e947b164c3067b883ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boximon: {fileID: 1975194375736644, guid: 849991bdc4dc61c4c94cb9263850b6dd, type: 3}
+  boximon: {fileID: 494438866457483160, guid: dbf2cf77368fc9246bf99be6eeac3f97, type: 3}
 --- !u!4 &612020577
 Transform:
   m_ObjectHideFlags: 0
@@ -8433,7 +8433,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1932252202586502124, guid: cc1a8ba5c9d6b9c4d9011547260dcc5c, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1932252202586502124, guid: cc1a8ba5c9d6b9c4d9011547260dcc5c, type: 3}
       propertyPath: m_LocalScale.x
@@ -9290,7 +9290,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1932252202586502124, guid: cc1a8ba5c9d6b9c4d9011547260dcc5c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1932252202586502124, guid: cc1a8ba5c9d6b9c4d9011547260dcc5c, type: 3}
       propertyPath: m_LocalScale.x
@@ -10257,7 +10257,7 @@ Transform:
   - {fileID: 800184653}
   - {fileID: 522408808}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1431004826
 PrefabInstance:
@@ -11389,7 +11389,7 @@ Transform:
   - {fileID: 66466867}
   - {fileID: 1687627215}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1588317433
 PrefabInstance:
@@ -11806,6 +11806,14 @@ PrefabInstance:
     - target: {fileID: 4228476077077451886, guid: c0261872a6f7bdb428466f60073efe5a, type: 3}
       propertyPath: m_Name
       value: PlayerOffline
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228476077077451886, guid: c0261872a6f7bdb428466f60073efe5a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228476077077451890, guid: c0261872a6f7bdb428466f60073efe5a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4228476077077451890, guid: c0261872a6f7bdb428466f60073efe5a, type: 3}
       propertyPath: _onDead.m_PersistentCalls.m_Calls.Array.data[0].m_Target
