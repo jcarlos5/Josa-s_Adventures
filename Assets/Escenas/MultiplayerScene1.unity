@@ -9054,7 +9054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d10495b3f32e947b164c3067b883ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boximon: {fileID: 1975194375736644, guid: 05e280d1aea9d8149810fc03aefc12a5, type: 3}
+  boximon: {fileID: 494438866457483160, guid: 5a419c08a03d8b24e9a57a4a306da69d, type: 3}
 --- !u!4 &809712610
 Transform:
   m_ObjectHideFlags: 0
