@@ -5,12 +5,12 @@ using UnityEngine.UI;
 using UnityEngine;
 using Invector.vCharacterController;
 using Invector.vItemManager;
+using UnityEngine.SceneManagement;
 
 public class PlayerOfflineController : MonoBehaviour
 {
     private Vector3 portalPosition;
     public bool isImmortal = false;
-    private int numPieces = 0;
     public Text txtPieces, txtBonus, txtMoney;
     public int targetPieces = 4;
     public float bonusTime = 30f;
@@ -23,6 +23,9 @@ public class PlayerOfflineController : MonoBehaviour
         invectorController = gameObject.GetComponent<vThirdPersonController>();
         portalPosition = GameObject.FindWithTag("Portal").transform.position;
         itemManager = gameObject.GetComponent<vItemManager>();
+        LoadData();
+        txtPieces.text = "Piezas de la llave: " + numKeys + " / " + targetPieces;
+        txtMoney.text = "Monedas generales:  " + globalMoney;
     }
 
     void Update()
@@ -75,5 +78,26 @@ public class PlayerOfflineController : MonoBehaviour
         }
     }
 
-    
+    public void Morir_uwu()
+    {
+        SaveData();
+        Invoke("cambiarEscena", 2f);
+    }
+
+    public void cambiarEscena()
+    {
+        SceneManager.LoadScene("EndMenu");
+    }
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt("Money", globalMoney);
+        PlayerPrefs.SetInt("Keys", numKeys);
+    }
+
+    private void LoadData()
+    {
+        globalMoney = PlayerPrefs.GetInt("Money", 0);
+        numKeys = PlayerPrefs.GetInt("Keys", 0);
+    }
 }
