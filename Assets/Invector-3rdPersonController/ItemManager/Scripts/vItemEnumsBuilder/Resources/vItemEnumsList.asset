@@ -21,6 +21,9 @@ MonoBehaviour:
   - MaxHealth
   - MaxStamina
   - Stamina
+  - Inmortalidad
+  - Money
+  - PieceKey
   itemTypeEnumFormats:
   - Alimentos
   - 
@@ -30,3 +33,6 @@ MonoBehaviour:
   - "Poci\xF3n de salud m\xE1xima"
   - 
   - 
+  - Inmortalidad
+  - Monedas
+  - Pieza de llave

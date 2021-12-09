@@ -20,8 +20,12 @@ MonoBehaviour:
   maxStack: 1
   amount: 0
   originalObject: {fileID: 0}
-  dropObject: {fileID: 0}
-  attributes: []
+  dropObject: {fileID: 145986, guid: ac512bf05f379cf47a6d45da777456de, type: 3}
+  attributes:
+  - name: 11
+    value: 1
+    isOpen: 0
+    isBool: 0
   isInEquipArea: 0
   destroyAfterUse: 1
   canBeUsed: 1
@@ -761,9 +765,13 @@ MonoBehaviour:
   amount: 0
   originalObject: {fileID: 0}
   dropObject: {fileID: 0}
-  attributes: []
+  attributes:
+  - name: 13
+    value: 1
+    isOpen: 1
+    isBool: 0
   isInEquipArea: 0
-  destroyAfterUse: 1
+  destroyAfterUse: 0
   canBeUsed: 0
   canBeDroped: 0
   canBeDestroyed: 0
