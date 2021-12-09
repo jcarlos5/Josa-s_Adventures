@@ -6,10 +6,10 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     private bool isPlayerInRange;
-    public TextMeshPro textD;
-    [TextArea (3,30)]
-    public string[] parrafos;
-    int index;
+    public TextMeshProUGUI textD;
+
+    [TextArea (2,4)] public string[] parrafos;
+    int index = 0;
     public float velParrafo;
     public GameObject botonContinue;
     public GameObject botonQuitar;
@@ -26,32 +26,41 @@ public class Dialogue : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (textD.text == parrafos[index])
+    {        
+        if (Input.GetKeyUp(KeyCode.L))
         {
-            botonContinue.SetActive(true);
+            activarBotonLeer();                
+        }
+
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            siguienteParrafo();                
+        }
+
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            botonCerrar();               
         }
     }
 
     IEnumerator TextDialogo(){
-        foreach (char letra in parrafos[index].ToCharArray())
+        foreach (char letra in parrafos[index])
         {
             textD.text += letra;
-            yield return new WaitForSeconds(velParrafo);
+            yield return new WaitForSecondsRealtime(velParrafo);
         }
     }
-
     public void siguienteParrafo(){
-        botonContinue.SetActive(false);
-        if (index < parrafos.Length - 1)
-        {
-            index++;
+        botonContinue.SetActive(true);
+        index++;
+        if (index < parrafos.Length -1)
+        {            
             textD.text="";
             StartCoroutine(TextDialogo());
         }
         else
         {
-            textD.text = "";
+            textD.text = "...";
             botonContinue.SetActive(false);
             botonQuitar.SetActive(true);
         }
@@ -61,34 +70,23 @@ public class Dialogue : MonoBehaviour
     private void OnTriggerEnter(Collider collision) {
         if (collision.gameObject.CompareTag("Player"))
         {
-            /*isPlayerInRange = true;
-            ;*/
-            botonLeer.SetActive(true);
-            //Debug.Log("Se puede iniciar un diálogo");
+            botonLeer.SetActive(true);         
         }
         else
         {
             botonLeer.SetActive(false);
-            //Debug.Log("No se puede iniciar un diálogo");
         }
     }
 
     public void activarBotonLeer()
-    {
+    {            
         panelDialogo.SetActive(true);
-        StartCoroutine(TextDialogo());
+        botonLeer.SetActive(false);                    
     }
     public void botonCerrar()
     {
         panelDialogo.SetActive(false);
         botonLeer.SetActive(false);
     }
-/*
-    private void OnTriggerExit(Collider collision) {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            Debug.Log("No se puede iniciar un diálogo");
-        }
-    }*/
+
 }
