@@ -21,6 +21,9 @@ namespace Invector.vItemManager {
        [Description("Poción de salud máxima")] MaxHealth=7,
        [Description("")] MaxStamina=8,
        [Description("(VALUE)")] SecundaryAmmoCount=9,
-       [Description("")] SecundaryDamage=10
+       [Description("")] SecundaryDamage=10,
+       [Description("Inmortalidad")] Inmortalidad=11,
+       [Description("Monedas")] Money=12,
+       [Description("Pieza de llave")] PieceKey=13
      }
 }
