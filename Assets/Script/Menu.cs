@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        txtMoney.text = PlayerPrefs.GetInt("Money", 0);
+        txtMoney.text = ""+PlayerPrefs.GetInt("Money", 0);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

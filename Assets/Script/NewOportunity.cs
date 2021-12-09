@@ -14,13 +14,8 @@ public class NewOportunity : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        LoadData();
         txtMoney.text = "" + globalMoney;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void SaveData()
@@ -55,6 +50,5 @@ public class NewOportunity : MonoBehaviour
         numKeys= 0;
         SaveData();
         SceneManager.LoadScene("eo");
-
     }
 }
