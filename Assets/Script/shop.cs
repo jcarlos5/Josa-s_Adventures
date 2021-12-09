@@ -29,16 +29,12 @@ public class shop : MonoBehaviour
             g = Instantiate (ItemTemplate, ShopScrollView);
             g.transform.GetChild(0).GetComponent <Image>().sprite = ShopItemsList[i].Image;
             g.transform.GetChild(1).GetChild(0).GetComponent <Text>().text = ShopItemsList[i].Price.ToString();
-            g.transform.GetChild(2).GetComponent <Button>().interactable = !ShopItemsList[i].IsPurchased;
+            g.transform.GetChild(2).GetComponent <Button> ().interactable = !ShopItemsList [i].IsPurchased;
+            
         }
 
         Destroy(ItemTemplate);
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
