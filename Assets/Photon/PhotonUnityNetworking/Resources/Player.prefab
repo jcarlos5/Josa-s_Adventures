@@ -16602,8 +16602,8 @@ GameObject:
   - component: {fileID: 4228476077077451887}
   - component: {fileID: 956825792156804807}
   - component: {fileID: 6836851758938098824}
-  - component: {fileID: 255016093}
   - component: {fileID: -7505784340387941569}
+  - component: {fileID: 255016093}
   - component: {fileID: -4528062642651844746}
   m_Layer: 8
   m_Name: Player
@@ -16691,7 +16691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 0
   openCloseWindow: 1
-  selectedToolbar: 1
+  selectedToolbar: 5
   _isDead: 0
   _currentHealth: 0
   isImmortal: 0
@@ -17870,6 +17870,22 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &-7505784340387941569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228476077077451886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!114 &255016093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17896,22 +17912,6 @@ MonoBehaviour:
   - {fileID: 4228476077077451881}
   - {fileID: 4228476077077451880}
   - {fileID: 4228476077077451887}
---- !u!114 &-7505784340387941569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4228476077077451886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!114 &-4528062642651844746
 MonoBehaviour:
   m_ObjectHideFlags: 0
