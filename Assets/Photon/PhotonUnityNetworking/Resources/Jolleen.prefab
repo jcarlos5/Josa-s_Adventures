@@ -50206,8 +50206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 0
-  selectedToolbar: 6
+  openCloseWindow: 1
+  selectedToolbar: 1
   _isDead: 0
   _currentHealth: 0
   isImmortal: 0
