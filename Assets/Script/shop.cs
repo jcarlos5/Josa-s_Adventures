@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class shop : MonoBehaviour
 {
+    //Serializable: Indica al compilador que todo el contenido de la clase puede conservarse en un archivo
     [System.Serializable] class shopItem{
         public Sprite Image;
         public int Price;
         public bool IsPurchased = false;
     }
 
+    //Se le dice a Unity que lo serialice y lo muestre en el Editor
     [SerializeField] List<shopItem> ShopItemsList;
 
     GameObject ItemTemplate;
