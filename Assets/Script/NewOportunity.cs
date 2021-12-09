@@ -14,7 +14,7 @@ public class NewOportunity : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        txtMoney.text = "Moneda recolectadas: " + globalMoney;
+        txtMoney.text = "" + globalMoney;
     }
 
     // Update is called once per frame
